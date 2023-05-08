@@ -24,27 +24,30 @@ console.log(getPlayerChoice());
 
 function playRound(playerSelection,computerSelection) {
     if (playerSelection === computerSelection) {
-        console.log(`Player chose ${playerSelection}, Computer chose ${computerSelection}. You draw!`);
+        return `Player chose ${playerSelection}, Computer chose ${computerSelection}. You draw!`;
     }
     else if ((playerSelection === 'rock') && (computerSelection ==='paper')) {
-        console.log(`You lose`);
+        return `You lose`;
     }
     else if ((playerSelection === 'rock') && (computerSelection ==='scissors')) {
-        console.log(`You win`);
+        return `You win`;
     }
     else if ((playerSelection === 'paper') && (computerSelection ==='rock')) {
-        console.log(`You win`);
+        return `You win`;
     }
     else if ((playerSelection === 'paper') && (computerSelection ==='scissors')) {
-        console.log(`You lose`);
+        return `You lose`;
     }
     else if ((playerSelection === 'scissors') && (computerSelection ==='paper')) {
-        console.log(`You win`);
+        return `You win`;
     }
     else if ((playerSelection === 'scissors') && (computerSelection ==='rock')) {
-        console.log(`You lose`);
+        return `You lose`;
     }
-
+    else {
+        return 'You enter the wrong selection';
+    }
 }
+console.log(playRound(playerSelection,computerSelection));
 
 
