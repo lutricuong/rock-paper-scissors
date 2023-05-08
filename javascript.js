@@ -13,14 +13,12 @@ function getComputerChoice() {
     }
     return computerSelection;
 }
-console.log(getComputerChoice());
 
 function getPlayerChoice() {
     let choiceTextPlayer = prompt('Chose Rock, Paper or Scissors?');
     playerSelection=choiceTextPlayer.toLowerCase();
     return playerSelection;
 }
-console.log(getPlayerChoice());
 
 function playRound(playerSelection,computerSelection) {
     if (playerSelection === computerSelection) {
@@ -48,6 +46,33 @@ function playRound(playerSelection,computerSelection) {
         return 'You enter the wrong selection';
     }
 }
-console.log(playRound(playerSelection,computerSelection));
 
-
+function game() {
+    let playScore = 0;
+    let computerScore = 0;
+    for (let i=1;i<=5;i++) {
+        let player = getPlayerChoice();
+        let computer = getComputerChoice();
+        let game = playRound(playerSelection,computerSelection);
+        if (game === 'You win') {
+            playScore++;
+        }
+        else if (game === 'You lose') {
+            computerScore++;
+        }
+        console.log(player);
+        console.log(computer);
+    }
+    console.log(playScore);
+    console.log(computerScore);
+    if (playScore>computerScore) {
+        return 'You win all';
+    }
+    else if (playScore<computerScore) {
+        return 'You lose all';
+    }
+    else {
+        return 'You draw all';
+    }
+}
+console.log(game());
