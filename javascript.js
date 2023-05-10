@@ -50,15 +50,21 @@ function playRound(playerSelection,computerSelection) {
 function game() {
     let playScore = 0;
     let computerScore = 0;
-    for (let i=1;i<=5;i++) {
+    while (true) {
         let player = getPlayerChoice();
         let computer = getComputerChoice();
         let game = playRound(playerSelection,computerSelection);
         if (game === 'You win') {
             playScore++;
+            if (playScore === 5) {
+                break;
+            }
         }
         else if (game === 'You lose') {
             computerScore++;
+            if (computerScore === 5) {
+                break;
+            }
         }
         console.log(player);
         console.log(computer);
