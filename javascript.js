@@ -22,6 +22,8 @@ const scissors = document.querySelector('.scissors');
 scissors.addEventListener('click',playerScissors);
 let playerScore = 0;
 let computerScore = 0;
+result = document.querySelector('.result');
+
 function playerRock() {
     getComputerChoice();
     const playerSelection = 'rock';
@@ -35,6 +37,8 @@ function playerRock() {
     }
     console.log(playerScore);
     console.log(computerScore);
+    result.textContent = `Player Score: ${playerScore}, Computer Score: ${computerScore}`
+    Score();
 }
 function playerPaper() {
     getComputerChoice();
@@ -49,6 +53,8 @@ function playerPaper() {
     }
     console.log(playerScore);
     console.log(computerScore);
+    result.textContent = `Player Score: ${playerScore}, Computer Score: ${computerScore}`
+    Score();
 }
 function playerScissors() {
     getComputerChoice();
@@ -63,19 +69,19 @@ function playerScissors() {
     }
     console.log(playerScore);
     console.log(computerScore);
-    //else if ((playerSelection === 'paper') && (computerSelection ==='rock')) {
-    //    return `You win`;
-    //}
-    //else if ((playerSelection === 'paper') && (computerSelection ==='scissors')) {
-    //    return `You lose`;
-    //}
-    //else if ((playerSelection === 'scissors') && (computerSelection ==='paper')) {
-    //    return `You win`;
-    //}
-    //else if ((playerSelection === 'scissors') && (computerSelection ==='rock')) {
-    //    return `You lose`;
-    //}
-    //else {
-    //    return 'You enter the wrong selection';
-    //}
+    result.textContent = `Player Score: ${playerScore}, Computer Score: ${computerScore}`
+    Score();
 }
+function Score() {
+    if (playerScore === 5) {
+        result.textContent = `Player Win!!!`;
+        playerScore = 0;
+        computerScore = 0;
+}
+    else if (computerScore === 5) {
+        result.textContent = `Computer Win!!!`;
+        playerScore = 0;
+        computerScore = 0;
+}
+}
+
