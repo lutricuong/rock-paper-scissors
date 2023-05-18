@@ -14,71 +14,68 @@ function getComputerChoice() {
     return computerSelection;
 }
 
-function getPlayerChoice() {
-    let choiceTextPlayer = prompt('Chose Rock, Paper or Scissors?');
-    playerSelection=choiceTextPlayer.toLowerCase();
-    return playerSelection;
-}
-
-function playRound(playerSelection,computerSelection) {
-    if (playerSelection === computerSelection) {
-        return `Player chose ${playerSelection}, Computer chose ${computerSelection}. You draw!`;
-    }
-    else if ((playerSelection === 'rock') && (computerSelection ==='paper')) {
-        return `You lose`;
+const rock = document.querySelector('.rock');
+rock.addEventListener('click',playerRock);
+const paper = document.querySelector('.paper');
+paper.addEventListener('click',playerPaper);
+const scissors = document.querySelector('.scissors');
+scissors.addEventListener('click',playerScissors);
+let playerScore = 0;
+let computerScore = 0;
+function playerRock() {
+    getComputerChoice();
+    const playerSelection = 'rock';
+    console.log(playerSelection);
+    console.log(computerSelection);
+    if ((playerSelection === 'rock') && (computerSelection ==='paper')) {
+        computerScore += 1;
     }
     else if ((playerSelection === 'rock') && (computerSelection ==='scissors')) {
-        return `You win`;
+        playerScore += 1;
     }
-    else if ((playerSelection === 'paper') && (computerSelection ==='rock')) {
-        return `You win`;
+    console.log(playerScore);
+    console.log(computerScore);
+}
+function playerPaper() {
+    getComputerChoice();
+    const playerSelection = 'paper';
+    console.log(playerSelection);
+    console.log(computerSelection);
+    if ((playerSelection === 'paper') && (computerSelection ==='rock')) {
+        playerScore += 1;
     }
     else if ((playerSelection === 'paper') && (computerSelection ==='scissors')) {
-        return `You lose`;
+        computerScore += 1;
+    }
+    console.log(playerScore);
+    console.log(computerScore);
+}
+function playerScissors() {
+    getComputerChoice();
+    const playerSelection = 'scissors';
+    console.log(playerSelection);
+    console.log(computerSelection);
+    if ((playerSelection === 'scissors') && (computerSelection ==='rock')) {
+        computerScore += 1;
     }
     else if ((playerSelection === 'scissors') && (computerSelection ==='paper')) {
-        return `You win`;
+        playerScore += 1;
     }
-    else if ((playerSelection === 'scissors') && (computerSelection ==='rock')) {
-        return `You lose`;
-    }
-    else {
-        return 'You enter the wrong selection';
-    }
-}
-
-function game() {
-    let playScore = 0;
-    let computerScore = 0;
-    while (true) {
-        let player = getPlayerChoice();
-        let computer = getComputerChoice();
-        let game = playRound(playerSelection,computerSelection);
-        if (game === 'You win') {
-            playScore++;
-            if (playScore === 5) {
-                break;
-            }
-        }
-        else if (game === 'You lose') {
-            computerScore++;
-            if (computerScore === 5) {
-                break;
-            }
-        }
-        console.log(player);
-        console.log(computer);
-    }
-    console.log(playScore);
+    console.log(playerScore);
     console.log(computerScore);
-    if (playScore>computerScore) {
-        return 'You win all';
-    }
-    else if (playScore<computerScore) {
-        return 'You lose all';
-    }
-    else {
-        return 'You draw all';
-    }
+    //else if ((playerSelection === 'paper') && (computerSelection ==='rock')) {
+    //    return `You win`;
+    //}
+    //else if ((playerSelection === 'paper') && (computerSelection ==='scissors')) {
+    //    return `You lose`;
+    //}
+    //else if ((playerSelection === 'scissors') && (computerSelection ==='paper')) {
+    //    return `You win`;
+    //}
+    //else if ((playerSelection === 'scissors') && (computerSelection ==='rock')) {
+    //    return `You lose`;
+    //}
+    //else {
+    //    return 'You enter the wrong selection';
+    //}
 }
-console.log(game());
