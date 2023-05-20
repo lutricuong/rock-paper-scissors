@@ -62,6 +62,7 @@ function playerChooseRock() {
     playerSelection = 'rock';
     getComputerChoice();
     rockPaperScissors();
+    result.classList.add('resultBorder');
     result.textContent = `Player Score: ${playerScore}, Computer Score: ${computerScore}`
     resetScore();
 }
@@ -70,6 +71,7 @@ function playerChoosePaper() {
     playerSelection = 'paper';
     getComputerChoice();
     rockPaperScissors();
+    result.classList.add('resultBorder');
     result.textContent = `Player Score: ${playerScore}, Computer Score: ${computerScore}`
     resetScore();
 }
@@ -78,6 +80,7 @@ function playerChooseScissors() {
     playerSelection = 'scissors';
     getComputerChoice();
     rockPaperScissors();
+    result.classList.add('resultBorder');
     result.textContent = `Player Score: ${playerScore}, Computer Score: ${computerScore}`
     resetScore();
 }
